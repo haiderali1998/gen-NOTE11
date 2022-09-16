@@ -37,3 +37,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 * Javascript
 * Express 
 * JSON  
+
+## Description
+
+This project involved working with API's adn routes in order to join the back end aspects of development with frontend, which allows me to develop as a full stack develepor.
+
