@@ -3,9 +3,7 @@ var data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 const path = require("path");
 
 
-
-
-module.exports = function(app) {
+pathAPI = function(app) {
 
     app.get("/api/notes", function(req, res) {
        
@@ -23,9 +21,9 @@ module.exports = function(app) {
     app.post("/api/notes", function(req, res) {
 
         let newNote = req.body;
-        let uniqueId = (data.length).toString();
-        console.log(uniqueId);
-        newNote.id = uniqueId;
+        let specificNote = (data.length).toString();
+        console.log(specificNote);
+        newNote.id = specificNote;
         data.push(newNote);
         
         fs.writeFileSync("./db/db.json", JSON.stringify(data), function(err) {
@@ -39,18 +37,20 @@ module.exports = function(app) {
     
     app.delete("/api/notes/:id", function(req, res) {
 
-        let noteId = req.params.id;
-        let newId = 0;
-        console.log(`Deleting note with id ${noteId}`);
+        let noteSpecific = req.params.id;
+        let newNoteSpecific = 0;
+        console.log(`Deleting note ${noteSpecific}`);
         data = data.filter(currentNote => {
-           return currentNote.id != noteId;
+           return currentNote.id != noteSpecific;
         });
         for (currentNote of data) {
-            currentNote.id = newId.toString();
-            newId++;
+            currentNote.id = newNoteSpecific.toString();
+            newNoteSpecific++;
         }
         fs.writeFileSync("./db/db.json", JSON.stringify(data));
         res.json(data);
     }); 
 
 }
+
+module.exports = pathAPI

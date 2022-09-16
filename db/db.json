@@ -1,1 +1,17 @@
-[{"title":"bins ","text":"take out","id":"0"},{"title":"swim","text":"go swim","id":"1"}]
+[
+    {
+        "title": "Go swimming",
+        "text": "Go swimming tomorrow",
+        "id": "0"
+    },
+    {
+        "title": "Take bins",
+        "text": "Take bins out",
+        "id": "1"
+    },
+    {
+        "title": "Do coding",
+        "text": "Do my coding work!",
+        "id": "2"
+    }
+]
